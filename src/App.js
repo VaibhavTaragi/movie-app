@@ -17,7 +17,7 @@ function App() {
     const response = await fetch(url);
     const responseJSON = await response.json();
 
-    console.log(responseJSON);
+    // console.log(responseJSON);
     if(responseJSON.Search){
       setMovies(responseJSON.Search);
     }
@@ -28,10 +28,18 @@ function App() {
   }
 
   const addFovouriteMovie=(movie)=>{
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
+    if(favourites[0] !== undefined){
+      const newFavouriteList = [...favourites, movie];
+      setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
+    }
+    else{
+      const newFavouriteList = [movie];
+      setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
+    }
   }
+  // console.log(favourites[0]=== undefined);
 
   const removeFavouritMovies = (movie)=>{
     const newFavouriteList = favourites.filter((favourite)=> favourite.imdbID !== movie.imdbID);
