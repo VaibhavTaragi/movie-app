@@ -17,7 +17,7 @@ function App() {
     const response = await fetch(url);
     const responseJSON = await response.json();
 
-    console.log(responseJSON);
+    // console.log(responseJSON);
     if(responseJSON.Search){
       setMovies(responseJSON.Search);
     }
@@ -28,6 +28,8 @@ function App() {
   }
 
   const addFovouriteMovie=(movie)=>{
+    console.log(typeof(movie),"fav typse:", typeof(favourites));
+    console.log(movie,"fav:", favourites);
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
