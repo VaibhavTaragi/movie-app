@@ -13,6 +13,9 @@ body{
   flex-wrap: nowrap;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 .image-container{
   position: relative;
   transition: transform 0.2s;
