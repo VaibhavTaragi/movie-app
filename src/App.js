@@ -28,8 +28,6 @@ function App() {
   }
 
   const addFovouriteMovie=(movie)=>{
-    console.log(typeof(movie),"fav typse:", typeof(favourites));
-    console.log(movie,"fav:", favourites);
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
@@ -46,7 +44,7 @@ function App() {
   },[searchValue]);
 
   useEffect(()=>{
-    const movieFavourites = JSON.parse(localStorage.getItem("react-movie-app-favourites"));
+    const movieFavourites = JSON.parse(localStorage.getItem("react-movie-app-favourites")|| '[]');
     setFavourites(movieFavourites);
   },[]);  
 
